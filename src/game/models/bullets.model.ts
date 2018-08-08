@@ -1,14 +1,17 @@
+import 'phaser-ce/build/custom/pixi';
+import 'phaser-ce/build/custom/p2';
 import * as Phaser from 'phaser-ce/build/custom/phaser-split';
-import {PlayerModel} from "./player.model";
+import {PlayerModel} from './player.model';
 
 export class BulletsModel extends Phaser.Group {
-  bulletTime: number = 0;
+  bulletTime: number;
   enableBody: boolean;
   physicsBodyType: any;
   fireButton: any;
 
   constructor(public game: Phaser.Game, public player: PlayerModel) {
     super(game);
+    this.bulletTime = 0;
     this.enableBody = true;
     this.physicsBodyType = Phaser.Physics.ARCADE;
     this.createMultiple(30, 'bullets');

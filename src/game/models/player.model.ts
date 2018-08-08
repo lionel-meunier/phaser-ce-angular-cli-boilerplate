@@ -1,4 +1,6 @@
-import * as Phaser from "phaser-ce/build/custom/phaser-split";
+import 'phaser-ce/build/custom/pixi';
+import 'phaser-ce/build/custom/p2';
+import * as Phaser from 'phaser-ce/build/custom/phaser-split';
 
 export class PlayerModel extends Phaser.Sprite {
   alive: boolean;

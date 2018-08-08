@@ -1,6 +1,6 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {GameComponent} from './game.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {GameComponent} from "./game.component";
 
 @NgModule({
   declarations: [
@@ -9,8 +9,9 @@ import {GameComponent} from './game.component';
   imports: [
     BrowserModule
   ],
-  exports : [GameComponent],
+  exports: [GameComponent],
   providers: [],
   bootstrap: [GameComponent]
 })
-export class GameModule { }
+export class GameModule {
+}

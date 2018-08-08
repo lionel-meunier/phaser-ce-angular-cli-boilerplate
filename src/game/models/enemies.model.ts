@@ -1,4 +1,6 @@
-import * as Phaser from "phaser-ce/build/custom/phaser-split";
+import 'phaser-ce/build/custom/pixi';
+import 'phaser-ce/build/custom/p2';
+import * as Phaser from 'phaser-ce/build/custom/phaser-split';
 
 export class EnemiesModel extends Phaser.Group {
   x: number;
@@ -13,17 +15,17 @@ export class EnemiesModel extends Phaser.Group {
   }
 
   update() {
-
+    console.log('update enemies');
   }
 
   createAliens() {
 
-    for (var y = 0; y < 10; y++) {
-      for (var x = 0; x < 4; x++) {
-        var alien = this.create(x * 48, y * 50, "invader");
+    for (const y = 0; y < 10; y++) {
+      for (const x = 0; x < 4; x++) {
+        let alien = this.create(x * 48, y * 50, 'invader');
         alien.anchor.setTo(0.5, 0.5);
-        alien.animations.add("fly", [0, 1, 2, 3], 20, true);
-        alien.play("fly");
+        alien.animations.add('fly', [0, 1, 2, 3], 20, true);
+        alien.play('fly');
         alien.body.moves = false;
       }
     }
@@ -32,7 +34,7 @@ export class EnemiesModel extends Phaser.Group {
     this.y = 50;
 
     //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-    var tween = this.game.add.tween(this).to({y: 100}, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    let tween = this.game.add.tween(this).to({y: 100}, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     //  When the tween loops it calls descend
     tween.onLoop.add(() => {
