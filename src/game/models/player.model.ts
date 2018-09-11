@@ -1,6 +1,6 @@
-import 'phaser-ce/build/custom/pixi';
-import 'phaser-ce/build/custom/p2';
-import * as Phaser from 'phaser-ce/build/custom/phaser-split';
+// import 'phaser-ce/build/custom/pixi';
+// import 'phaser-ce/build/custom/p2';
+import * as Phaser from 'phaser-ce';
 
 export class PlayerModel extends Phaser.Sprite {
   alive: boolean;
@@ -10,7 +10,7 @@ export class PlayerModel extends Phaser.Sprite {
   y: number;
 
   constructor(public game: Phaser.Game, public cursors: any) {
-    super(game, 100, 300, "player");
+    super(game, 100, 300, 'player');
     game.world.add(this);
     game.physics.enable(this, Phaser.Physics.ARCADE);
     this.anchor.setTo(0.5, 0.5);

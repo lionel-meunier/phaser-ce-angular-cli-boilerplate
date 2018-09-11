@@ -1,6 +1,6 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { GameModule } from '../game/game.module';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {GameModule} from '../game/game.module';
 
 xdescribe('AppComponent', () => {
   beforeEach(async(() => {
@@ -8,7 +8,7 @@ xdescribe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports : [
+      imports: [
         GameModule
       ]
     }).compileComponents();

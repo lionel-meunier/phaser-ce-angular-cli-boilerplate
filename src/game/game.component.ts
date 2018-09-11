@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef} from '@angular/core';
-import 'phaser-ce/build/custom/pixi';
-import 'phaser-ce/build/custom/p2';
-import * as Phaser from 'phaser-ce/build/custom/phaser-split';
+// import 'phaser-ce/build/custom/pixi';
+// import 'phaser-ce/build/custom/p2';
+import * as Phaser from 'phaser-ce';
 import {PlayerModel} from './models/player.model';
 import {BackgroundModel} from './models/background.model';
 import {BulletsModel} from './models/bullets.model';
@@ -65,18 +65,18 @@ export class GameComponent implements AfterViewInit {
   }
 
   update() {
-    if(this.player.alive) {
+    if (this.player.alive) {
       this.game.physics.arcade.overlap(this.bullets, this.enemies, this.collisionHandler, null, this);
     }
   }
 
-  collisionHandler (bullet, enemy) {
+  collisionHandler(bullet, enemy) {
 
     bullet.kill();
     enemy.kill();
     // TODO add animation explosion
 
-    if (this.enemies.countLiving() == 0) {
+    if (this.enemies.countLiving() === 0) {
       console.log('WINNNN');
     }
   }

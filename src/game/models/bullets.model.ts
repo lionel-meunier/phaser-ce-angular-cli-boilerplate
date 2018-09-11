@@ -1,6 +1,6 @@
-import 'phaser-ce/build/custom/pixi';
-import 'phaser-ce/build/custom/p2';
-import * as Phaser from 'phaser-ce/build/custom/phaser-split';
+// import 'phaser-ce/build/custom/pixi';
+// import 'phaser-ce/build/custom/p2';
+import * as Phaser from 'phaser-ce';
 import {PlayerModel} from './player.model';
 
 export class BulletsModel extends Phaser.Group {
@@ -33,7 +33,7 @@ export class BulletsModel extends Phaser.Group {
   fireBullet() {
     if (this.game.time.now > this.bulletTime) {
       //  Grab the first bullet we can from the pool
-      let bullet = this.getFirstExists(false);
+      const bullet = this.getFirstExists(false);
 
       if (bullet) {
         //  And fire it
@@ -43,6 +43,4 @@ export class BulletsModel extends Phaser.Group {
       }
     }
   }
-
-
 }
