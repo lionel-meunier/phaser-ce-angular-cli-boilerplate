@@ -20,6 +20,7 @@ export class Level extends Phaser.State {
     // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
+    this.game.debug.start();
   }
 
   preload() {
@@ -379,59 +380,81 @@ export class Level extends Phaser.State {
   }
 
   afterCreate() {
-    this.camera.follow(this.fPlayerMario);
+    if(this.game.debug.dirty === true) {
+
+    } else {
+      this.camera.follow(this.fPlayerMario);
+    }
+
   }
 
   update() {
+
     this.physics.arcade.collide(this.fPlayer, this.fCollisionLayer);
     this.physics.arcade.collide(this.fPlayerMario, this.fCollisionLayer);
-    // a flag to know if the player is (down) touching the platforms
-    let touching = this.fPlayer.body.touching.down;
-    let touchingMario = this.fPlayerMario.body.touching.down;
 
-    if (touching && this.cursors.up.isDown) {
-      // jump if the player is on top of a platform and the up key is pressed
-      this.fPlayer.body.velocity.y = -600;
-    }
-    if (touchingMario && this.cursors.up.isDown) {
-      // jump if the player is on top of a platform and the up key is pressed
-      this.fPlayerMario.body.velocity.y = -600;
-    }
+    if(this.game.debug.dirty === true) {
+      if (this.cursors.up.isDown) {
+        this.game.camera.y -= 4;
+      } else if (this.cursors.down.isDown) {
+        this.game.camera.y += 4;
+      }
 
-    if (touchingMario) {
-      if (this.fPlayerMario.body.velocity.x == 0) {
-        if(this.cursors.down.isDown) {
-          this.fPlayerMario.play('lower');
+      if (this.cursors.left.isDown) {
+        this.game.camera.x -= 4;
+      } else if (this.cursors.right.isDown) {
+        this.game.camera.x += 4;
+      }
+
+    } else {
+      // a flag to know if the player is (down) touching the platforms
+      let touching = this.fPlayer.body.touching.down;
+      let touchingMario = this.fPlayerMario.body.touching.down;
+
+      if (touching && this.cursors.up.isDown) {
+        // jump if the player is on top of a platform and the up key is pressed
+        this.fPlayer.body.velocity.y = -600;
+      }
+      if (touchingMario && this.cursors.up.isDown) {
+        // jump if the player is on top of a platform and the up key is pressed
+        this.fPlayerMario.body.velocity.y = -600;
+      }
+
+      if (touchingMario) {
+        if (this.fPlayerMario.body.velocity.x == 0) {
+          if(this.cursors.down.isDown) {
+            this.fPlayerMario.play('lower');
+          } else {
+            this.fPlayerMario.play('idle');
+          }
         } else {
-          this.fPlayerMario.play('idle');
+          this.fPlayerMario.play('walk');
         }
       } else {
-        this.fPlayerMario.play('walk');
+        this.fPlayerMario.play('jump');
       }
-    } else {
-      this.fPlayerMario.play('jump');
-    }
 
-    if (touching) {
-      if (this.fPlayer.body.velocity.x === 0) {
-        // if it is not moving horizontally play the idle
-        this.fPlayer.play('idle');
+      if (touching) {
+        if (this.fPlayer.body.velocity.x === 0) {
+          // if it is not moving horizontally play the idle
+          this.fPlayer.play('idle');
+        } else {
+          // if it is moving play the walk
+          this.fPlayer.play('walk');
+        }
       } else {
-        // if it is moving play the walk
-        this.fPlayer.play('walk');
+        // it is not touching the platforms so it means it is jumping.
+        this.fPlayer.play('jump');
       }
-    } else {
-      // it is not touching the platforms so it means it is jumping.
-      this.fPlayer.play('jump');
+
+
+      // fruits
+      this.physics.arcade.overlap(this.fPlayer, this.fFruits, this.playerVsFruit, null, this);
+
+      // water
+      this.fWater.tilePosition.x -= 1;
+      this.fBG.tilePosition.x = -this.camera.x;
     }
-
-
-    // fruits
-    this.physics.arcade.overlap(this.fPlayer, this.fFruits, this.playerVsFruit, null, this);
-
-    // water
-    this.fWater.tilePosition.x -= 1;
-    this.fBG.tilePosition.x = -this.camera.x;
   }
 
   playerVsFruit(player, fruit) {

@@ -19,27 +19,30 @@ export class Player extends Phaser.Sprite {
   }
 
   update() {
-    //player move
-    if (this.cursors.left.isDown) {
-      // move to the left
-      this.body.velocity.x = -200;
-    } else if (this.cursors.right.isDown) {
-      // move to the right
-      this.body.velocity.x = 200;
+    if(this.game.debug.dirty === true) {
+
     } else {
-      // dont move in the horizontal
-      this.body.velocity.x = 0;
+      //player move
+      if (this.cursors.left.isDown) {
+        // move to the left
+        this.body.velocity.x = -200;
+      } else if (this.cursors.right.isDown) {
+        // move to the right
+        this.body.velocity.x = 200;
+      } else {
+        // dont move in the horizontal
+        this.body.velocity.x = 0;
+      }
+
+
+      // update the facing of the player
+      if (this.cursors.left.isDown) {
+        // face left
+        this.scale.x = 1;
+      } else if (this.cursors.right.isDown) {
+        // face right
+        this.scale.x = -1;
+      }
     }
-
-
-    // update the facing of the player
-    if (this.cursors.left.isDown) {
-      // face left
-      this.scale.x = -1;
-    } else if (this.cursors.right.isDown) {
-      // face right
-      this.scale.x = 1;
-    }
-
   }
 }
