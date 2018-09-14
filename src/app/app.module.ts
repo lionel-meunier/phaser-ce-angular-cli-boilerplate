@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GameModule} from '../game/game.module';
+import {GamePlatformModule} from '../game-platform/game-platform.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {GameModule} from '../game/game.module';
   ],
   imports: [
     BrowserModule,
-    GameModule
+    GameModule,
+    GamePlatformModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,61 @@
+{
+  "level": [
+    {
+      "type": "spritesheet",
+      "key": "player",
+      "url": "assets/assetsPlatform/images/fufu.png",
+      "frameWidth": 210,
+      "frameHeight": 210,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "mario",
+      "url": "assets/assetsPlatform/images/mario.png",
+      "frameWidth": 30,
+      "frameHeight": 40,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "mario-world-mario",
+      "url": "assets/assetsPlatform/images/mario-world-mario.png",
+      "frameWidth": 30,
+      "frameHeight": 40,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "BG",
+      "url": "assets/assetsPlatform/images/BG.png",
+      "overwrite": false
+    },
+    {
+      "type": "atlas",
+      "key": "objects",
+      "textureURL": "assets/assetsPlatform/textures/objects.png",
+      "atlasURL": "assets/assetsPlatform/textures/objects.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "tiles",
+      "textureURL": "assets/assetsPlatform/textures/tiles.png",
+      "atlasURL": "assets/assetsPlatform/textures/tiles.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    }
+  ],
+  "meta": {
+    "generated": "1511202790727",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}
