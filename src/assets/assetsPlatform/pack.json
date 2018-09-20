@@ -11,14 +11,11 @@
       "spacing": 0
     },
     {
-      "type": "spritesheet",
+      "type": "atlas",
       "key": "mario",
-      "url": "assets/assetsPlatform/images/mario.png",
-      "frameWidth": 30,
-      "frameHeight": 40,
-      "frameMax": -1,
-      "margin": 0,
-      "spacing": 0
+      "textureURL": "assets/assetsPlatform/images/mario.png",
+      "atlasURL": "assets/assetsPlatform/images/mario.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
     },
     {
       "type": "spritesheet",
@@ -48,6 +45,13 @@
       "key": "tiles",
       "textureURL": "assets/assetsPlatform/textures/tiles.png",
       "atlasURL": "assets/assetsPlatform/textures/tiles.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "backgrounds-objects",
+      "textureURL": "assets/assetsPlatform/textures/backgrounds-objects-transparent.png",
+      "atlasURL": "assets/assetsPlatform/textures/backgrounds-objects.json",
       "format": "TEXTURE_ATLAS_JSON_HASH"
     }
   ],

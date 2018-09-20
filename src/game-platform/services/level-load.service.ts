@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 export class LevelLoadService {
 
   constructor(private http: HttpClient) {
-    console.log(this.http);
   }
 
   loadLevel(name) {

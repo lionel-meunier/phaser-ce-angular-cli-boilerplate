@@ -6,11 +6,12 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {GamePlatformComponent} from './components/game-platform.component';
 import {LevelLoadService} from './services/level-load.service';
+import {DebugService} from './services/debug.service';
 
 
 @NgModule({
   declarations: [
-    GamePlatformComponent
+    GamePlatformComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import {LevelLoadService} from './services/level-load.service';
     GamePlatformComponent
   ],
   providers: [
-    LevelLoadService
+    LevelLoadService,
+    DebugService
   ],
 })
 export class GamePlatformModule {

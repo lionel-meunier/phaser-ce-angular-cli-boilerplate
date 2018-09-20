@@ -1,3 +1,146 @@
 {
-  "title" : "Level 1"
+  "title": "Level 1",
+  "assets": [
+    {
+      "key": "level",
+      "url": "assets/assetsPlatform/pack.json"
+    }
+  ],
+  "size": {
+    "width": 1000,
+    "height": 600
+  },
+  "background": {
+    "x": -11,
+    "y": -7,
+    "width": 1713,
+    "height": 750,
+    "key": "BG"
+  },
+  "elements": {
+    "back": [
+      {
+        "x": -100,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 0,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 100,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 200,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 300,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 400,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 500,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 600,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 700,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 800,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 900,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      },
+      {
+        "x": 1000,
+        "y": 570,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      }
+
+    ],
+    "items" : [
+      {
+        "type" : "interogationBox",
+        "x": 10,
+        "y": 500
+      },
+      {
+        "type" : "emptyBox",
+        "x": 100,
+        "y": 500
+      }
+    ],
+    "tiles" : [
+      {
+        "type" : "coin",
+        "x": 30,
+        "y": 500
+      },
+      {
+        "type" : "coin",
+        "x": 50,
+        "y": 500
+      },
+      {
+        "type" : "coin",
+        "x": 70,
+        "y": 500
+      },{
+        "type" : "coin",
+        "x": 100,
+        "y": 430
+      }
+    ],
+    "front" : [
+      {
+        "x": 10,
+        "y": 150,
+        "key": "backgrounds-objects",
+        "frame": "sol-big"
+      }
+    ],
+    "endGame" : [
+      {
+        "x": 900,
+        "y": 500,
+        "key": "backgrounds-objects",
+        "frame": "box-empty"
+      }
+    ]
+  }
 }

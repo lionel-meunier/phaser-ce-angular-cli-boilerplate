@@ -1,0 +1,94 @@
+{
+  "frames": {
+    "sol": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 431,
+        "y": 373,
+        "w": 20,
+        "h": 33
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 20,
+        "h": 33
+      },
+      "sourceSize": {
+        "w": 20,
+        "h": 33
+      }
+    },
+    "sol-big": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 431,
+        "y": 373,
+        "w": 100,
+        "h": 33
+      }
+    },
+    "box-interogation1": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 42,
+        "y": 38,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "box-interogation2": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 59,
+        "y": 38,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "box-interogation3": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 76,
+        "y": 38,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "box-interogation4": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 93,
+        "y": 38,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "box-empty": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 110,
+        "y": 38,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "coin": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 158,
+        "y": 48,
+        "w": 14,
+        "h": 16
+      }
+    }
+  }
+}

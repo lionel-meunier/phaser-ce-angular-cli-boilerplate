@@ -5,6 +5,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {GameModule} from '../game/game.module';
 import {GamePlatformModule} from '../game-platform/game-platform.module';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,12 @@ import {GamePlatformModule} from '../game-platform/game-platform.module';
   imports: [
     BrowserModule,
     GameModule,
-    GamePlatformModule
+    GamePlatformModule,
+    RouterModule.forRoot([{
+      path: '',
+      component: AppComponent
+    },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
