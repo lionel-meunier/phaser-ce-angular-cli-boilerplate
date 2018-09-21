@@ -1,22 +1,24 @@
 import * as Phaser from 'phaser-ce';
+import {PlayerModel} from '../../core/player.model';
+import {GameModel} from '../../core/game.model';
 
-export class Mario extends Phaser.Sprite {
+export class Mario extends PlayerModel {
 
   cursors: any;
 
-  constructor(game: Phaser.Game, x: number, y: number, key: string, frame?: number) {
-    super(game, x, y, key, frame);
-    game.world.add(this);
+  constructor(public parentGame: GameModel, x: number, y: number) {
+    super(parentGame, x, y, 'mario', null);
+    parentGame.phaserGame.world.add(this);
     this.anchor.setTo(0.5, 0.0);
 
     this.animations.add('walk', Phaser.Animation.generateFrameNames('walk', 1, 2), 6, true); //marche
     this.animations.add('jump', ['jump'], 6, true);
     this.animations.add('idle', ['idle'], 3, true);
     this.animations.add('lower', ['lower'], 3, true); // ce baisse
-    game.physics.arcade.enable(this);
+    parentGame.phaserGame.physics.arcade.enable(this);
     this.body.setSize(14, 28, 0, 0);
     // this.body.bounce.set(1);
-    this.cursors = this.game.input.keyboard.createCursorKeys();
+    this.cursors = parentGame.phaserGame.input.keyboard.createCursorKeys();
   }
 
   update() {

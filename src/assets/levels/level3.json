@@ -1,6 +1,6 @@
 {
-  "title": "Level 1",
-  "key": "level1",
+  "title": "Level 3",
+  "key": "level3",
   "assets": [
     {
       "key": "level",
@@ -100,7 +100,7 @@
     ],
     "items": [
       {
-        "type": "InterogationBoxModel",
+        "type": "interogationBox",
         "x": 10,
         "y": 500
       },
@@ -108,72 +108,27 @@
         "type": "emptyBox",
         "x": 100,
         "y": 500
-      },
-      {
-        "type": "InterogationBoxModel",
-        "x": 150,
-        "y": 500
-      },
-      {
-        "type": "InterogationBoxModel",
-        "x": 170,
-        "y": 500
-      },
-      {
-        "type": "InterogationBoxModel",
-        "x": 190,
-        "y": 500
-      },
-      {
-        "type": "emptyBox",
-        "x": 200,
-        "y": 555
-      },
-      {
-        "type": "emptyBox",
-        "x": 216,
-        "y": 555
-      },
-      {
-        "type": "emptyBox",
-        "x": 216,
-        "y": 539
-      },
-      {
-        "type": "emptyBox",
-        "x": 232,
-        "y": 555
-      },
-      {
-        "type": "emptyBox",
-        "x": 232,
-        "y": 539
-      },
-      {
-        "type": "emptyBox",
-        "x": 232,
-        "y": 523
       }
     ],
     "tiles": [
       {
-        "type": "CoinModel",
-        "x": 35,
+        "type": "coin",
+        "x": 30,
         "y": 500
       },
       {
-        "type": "CoinModel",
-        "x": 55,
+        "type": "coin",
+        "x": 50,
         "y": 500
       },
       {
-        "type": "CoinModel",
-        "x": 75,
+        "type": "coin",
+        "x": 70,
         "y": 500
       },
       {
-        "type": "CoinModel",
-        "x": 105,
+        "type": "coin",
+        "x": 100,
         "y": 430
       }
     ],
@@ -187,7 +142,7 @@
     ],
     "endGame": [
       {
-        "x": 300,
+        "x": 400,
         "y": 500,
         "key": "backgrounds-objects",
         "frame": "box-empty"

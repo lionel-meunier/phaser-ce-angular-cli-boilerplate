@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "goomba1" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 6,
+        "y": 18,
+        "w": 16,
+        "h": 15
+      }
+    },
+    "goomba2" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 25,
+        "y": 17,
+        "w": 16,
+        "h": 16
+      }
+    }
+  }
+}

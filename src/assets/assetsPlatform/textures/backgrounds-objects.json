@@ -80,13 +80,43 @@
         "h": 16
       }
     },
-    "coin": {
+    "coin1": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 140,
+        "y": 48,
+        "w": 6,
+        "h": 16
+      }
+    },
+    "coin2": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 147,
+        "y": 48,
+        "w": 10,
+        "h": 16
+      }
+    },
+    "coin3": {
       "trimmed": false,
       "rotated": false,
       "frame": {
         "x": 158,
         "y": 48,
         "w": 14,
+        "h": 16
+      }
+    },
+    "coin4": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 173,
+        "y": 48,
+        "w": 10,
         "h": 16
       }
     }

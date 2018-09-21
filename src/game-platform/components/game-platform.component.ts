@@ -1,9 +1,8 @@
 import {AfterViewInit, Component, ElementRef} from '@angular/core';
-import * as Phaser from 'phaser-ce';
-import {Level} from '../models/level.model';
-import {LevelLoadService} from '../services/level-load.service';
-import {LevelDefault} from '../models/level.default.model';
+import {GameLoadService} from '../services/game-load.service';
 import {DebugService} from '../services/debug.service';
+import {GameModel} from '../models/core/game.model';
+import {LevelMarioModel} from '../models/mario/levels/level.mario.model';
 
 @Component({
   selector: 'app-platform-game',
@@ -11,10 +10,10 @@ import {DebugService} from '../services/debug.service';
   styleUrls: ['./game-platform.component.scss']
 })
 export class GamePlatformComponent implements AfterViewInit {
-  game: Phaser.Game;
+  game: GameModel;
 
   constructor(private elRef: ElementRef,
-              private levelLoadService: LevelLoadService,
+              private gameLoadService: GameLoadService,
               private  debugService: DebugService) {
   }
 
@@ -27,19 +26,24 @@ export class GamePlatformComponent implements AfterViewInit {
         // this.game.debug.start();
       }
     });
-
-    this.levelLoadService.loadLevel('level1').then((levelData) => {
-      console.log(levelData);
-      this.createGame(levelData);
-
+    this.gameLoadService.load('mario').then((gameData) => {
+      this.createGame(gameData);
+    }, (reason) => {
+      console.log(reason, 'on error');
     });
   }
 
-  createGame(levelData: any) {
-    this.game = new Phaser.Game(800, 600, Phaser.CANVAS, this.elRef.nativeElement.querySelector('#content'));
-    let levelState = new Level(this.game, levelData, false);
-    this.game.state.add('level1', levelState);
-    this.game.state.add('LevelDefault', LevelDefault);
-    this.game.state.start('level1');
+  createGame(gameData: any) {
+    this.game = new GameModel(800, 600, this.elRef.nativeElement.querySelector('#content'));
+    gameData.levels.forEach((levelData) => {
+      let level = new LevelMarioModel(levelData.key, this.game, levelData);
+      this.game.addLevel(level);
+    });
+    this.game.start();
+    // this.game = new Phaser.Game(800, 600, Phaser.CANVAS, this.elRef.nativeElement.querySelector('#content'));
+    // let levelState = new Level(this.game, levelData, false);
+    // this.game.state.add('level1', levelState);
+    // this.game.state.add('LevelDefault', LevelDefault);
+    // this.game.state.start('level1');
   }
 }

@@ -1,0 +1,21 @@
+{
+  "title" : "Mario Test",
+  "data" : [
+    {
+      "type" : "level",
+      "url": "assets/levels/level1.json"
+    },
+    {
+      "type" : "level",
+      "url": "assets/levels/level2.json"
+    },
+    {
+      "type" : "level",
+      "url": "assets/levels/level3.json"
+    },
+    {
+      "type" : "level",
+      "url": "assets/levels/level4.json"
+    }
+  ]
+}

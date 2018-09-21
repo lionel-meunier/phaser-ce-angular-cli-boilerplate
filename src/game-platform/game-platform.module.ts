@@ -5,7 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {GamePlatformComponent} from './components/game-platform.component';
-import {LevelLoadService} from './services/level-load.service';
+import {GameLoadService} from './services/game-load.service';
 import {DebugService} from './services/debug.service';
 
 
@@ -21,7 +21,7 @@ import {DebugService} from './services/debug.service';
     GamePlatformComponent
   ],
   providers: [
-    LevelLoadService,
+    GameLoadService,
     DebugService
   ],
 })
