@@ -119,6 +119,16 @@
         "w": 10,
         "h": 16
       }
+    },
+    "mushroom" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 161,
+        "y": 69,
+        "w": 16,
+        "h": 16
+      }
     }
   }
 }

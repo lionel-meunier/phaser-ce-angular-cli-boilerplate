@@ -1,18 +1,30 @@
 import * as Phaser from 'phaser-ce';
-import {GameModel} from './game.model';
+import {LevelModel} from './level.model';
+import {ItemDefaultModel} from './item-default.model';
 
-export class EnemieModel extends Phaser.Sprite {
+export class EnemieModel extends ItemDefaultModel {
 
   cursors: any;
 
-  constructor(public parentGame: GameModel, x: number, y: number, key: string, frame?: number) {
-    super(parentGame.phaserGame, x, y, key, frame);
-    parentGame.phaserGame.world.add(this);
+  constructor(public level: LevelModel, data: any) {
+    super(level, data);
+    level.game.world.add(this);
     this.anchor.setTo(0.5, 0.0);
-    parentGame.phaserGame.physics.arcade.enable(this);
-    this.cursors = parentGame.phaserGame.input.keyboard.createCursorKeys();
+    level.game.physics.arcade.enable(this);
+    this.cursors = level.game.input.keyboard.createCursorKeys();
   }
 
   update() {
+  }
+
+  touchItem(item) {
+
+  }
+
+  kill() {
+    if (this.alive === true) {
+      this.level.parentGame.addPoint(100);
+    }
+    return super.kill();
   }
 }

@@ -117,7 +117,8 @@
       {
         "type": "InterogationBoxModel",
         "x": 170,
-        "y": 500
+        "y": 500,
+        "content" : ["MushroomModel"]
       },
       {
         "type": "InterogationBoxModel",
@@ -153,6 +154,33 @@
         "type": "emptyBox",
         "x": 232,
         "y": 523
+      },
+      {
+        "type": "emptyBox",
+        "x": 400,
+        "y": 555
+      },
+      {
+        "type": "emptyBox",
+        "x": 400,
+        "y": 539
+      },
+      {
+        "type": "emptyBox",
+        "x": 500,
+        "y": 555
+      }
+    ],
+    "enemies": [
+      {
+        "type" : "Goomba",
+        "x" : 380,
+        "y" : 550
+      },
+      {
+        "type" : "Goomba",
+        "x" : 480,
+        "y" : 550
       }
     ],
     "tiles": [
@@ -187,7 +215,7 @@
     ],
     "endGame": [
       {
-        "x": 300,
+        "x": 800,
         "y": 500,
         "key": "backgrounds-objects",
         "frame": "box-empty"

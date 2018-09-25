@@ -1,23 +1,33 @@
 {
   "frames": {
-    "goomba1" : {
+    "goomba-walk1" : {
       "trimmed": false,
       "rotated": false,
       "frame": {
-        "x": 6,
-        "y": 18,
-        "w": 16,
-        "h": 15
-      }
-    },
-    "goomba2" : {
-      "trimmed": false,
-      "rotated": false,
-      "frame": {
-        "x": 25,
-        "y": 17,
+        "x": 15,
+        "y": 4,
         "w": 16,
         "h": 16
+      }
+    },
+    "goomba-walk2" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 65,
+        "y": 4,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "goomba-die" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 315,
+        "y": 7,
+        "w": 16,
+        "h": 9
       }
     }
   }

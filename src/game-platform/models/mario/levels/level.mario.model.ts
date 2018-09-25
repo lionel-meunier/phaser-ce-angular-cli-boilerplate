@@ -3,6 +3,8 @@ import {GameModel} from '../../core/game.model';
 import {Mario} from '../players/mario.model';
 import {InterogationBoxModel} from '../items/interogation-box.model';
 import {CoinModel} from '../tiles/coin.model';
+import {Goomba} from '../enemies/goomba';
+import {MushroomModel} from '../tiles/mushroom.model';
 
 export class LevelMarioModel extends LevelModel {
 
@@ -17,5 +19,7 @@ export class LevelMarioModel extends LevelModel {
     this.typePlayers.push(Mario);
     this.typeElements.push(InterogationBoxModel);
     this.typeElements.push(CoinModel);
+    this.typeElements.push(Goomba);
+    this.typeElements.push(MushroomModel);
   }
 }

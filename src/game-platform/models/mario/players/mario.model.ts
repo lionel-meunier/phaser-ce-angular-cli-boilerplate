@@ -5,20 +5,31 @@ import {GameModel} from '../../core/game.model';
 export class Mario extends PlayerModel {
 
   cursors: any;
+  state: string;
 
   constructor(public parentGame: GameModel, x: number, y: number) {
     super(parentGame, x, y, 'mario', null);
     parentGame.phaserGame.world.add(this);
-    this.anchor.setTo(0.5, 0.0);
+    this.anchor.setTo(0.5, 1.0);
+    // small
+    this.animations.add('small-walk', Phaser.Animation.generateFrameNames('small-walk', 1, 2), 6, true);
+    this.animations.add('small-jump', ['small-jump'], 6, true);
+    this.animations.add('small-idle', ['small-idle'], 3, true);
+    this.animations.add('small-lower', ['small-lower'], 3, true);
 
-    this.animations.add('walk', Phaser.Animation.generateFrameNames('walk', 1, 2), 6, true); //marche
+    // standard
+    this.animations.add('walk', Phaser.Animation.generateFrameNames('walk', 1, 2), 6, true);
     this.animations.add('jump', ['jump'], 6, true);
     this.animations.add('idle', ['idle'], 3, true);
-    this.animations.add('lower', ['lower'], 3, true); // ce baisse
+    this.animations.add('lower', ['lower'], 3, true);
     parentGame.phaserGame.physics.arcade.enable(this);
-    this.body.setSize(14, 28, 0, 0);
+
+    this.state = 'small';
+    this.setSize();
     // this.body.bounce.set(1);
     this.cursors = parentGame.phaserGame.input.keyboard.createCursorKeys();
+
+
   }
 
   update() {
@@ -54,11 +65,28 @@ export class Mario extends PlayerModel {
       this.y -= 8;
       this.body.height = 28;
     }
+    super.play(name, frameRate, loop, killOnComplete);
+  }
 
-
-    if (this.animations) {
-      return this.animations.play(name, frameRate, loop, killOnComplete);
+  getAnimationName(type: string): string {
+    if (this.state !== 'standard') {
+      type = this.state + '-' + type;
     }
+    return type;
+  }
 
+  setSize() {
+    if (this.state === 'small') {
+      this.body.setSize(14, 16, 0, 0);
+    } else {
+      this.body.setSize(14, 28, 0, 0);
+    }
+  }
+
+  setState(type) {
+    if (type === 'standard' && this.state === 'small') {
+      this.state = type;
+      this.setSize();
+    }
   }
 }

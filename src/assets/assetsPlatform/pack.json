@@ -17,6 +17,7 @@
       "atlasURL": "assets/assetsPlatform/images/mario.json",
       "format": "TEXTURE_ATLAS_JSON_HASH"
     },
+
     {
       "type": "spritesheet",
       "key": "mario-world-mario",
@@ -52,6 +53,13 @@
       "key": "backgrounds-objects",
       "textureURL": "assets/assetsPlatform/textures/backgrounds-objects-transparent.png",
       "atlasURL": "assets/assetsPlatform/textures/backgrounds-objects.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "enemies",
+      "textureURL": "assets/assetsPlatform/textures/enemies.png",
+      "atlasURL": "assets/assetsPlatform/textures/enemies.json",
       "format": "TEXTURE_ATLAS_JSON_HASH"
     }
   ],

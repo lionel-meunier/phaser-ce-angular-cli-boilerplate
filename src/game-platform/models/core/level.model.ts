@@ -14,6 +14,7 @@ export class LevelModel extends Phaser.State {
   fBack: Phaser.Group;
   fItems: Phaser.Group;
   fTiles: Phaser.Group;
+  fEnemies: Phaser.Group;
   fFront: Phaser.Group;
   fEndGame: Phaser.Group;
   typePlayers: Array<any> = [];
@@ -43,6 +44,7 @@ export class LevelModel extends Phaser.State {
     this.createPlayersElements();
     this.createItemsElements();
     this.createTilesElements();
+    this.createEnemiesElements();
     this.createFrontsElements();
     this.createEndGame();
     this.afterCreate();
@@ -106,6 +108,12 @@ export class LevelModel extends Phaser.State {
     this.fTiles.setAll('body.allowGravity', false);
   }
 
+  createEnemiesElements() {
+    this.fEnemies = this.createElements(this.data.elements['enemies']);
+    this.fEnemies.setAll('body.checkCollision', true);
+    // this.fEnemies.setAll('body.allowGravity', false);
+  }
+
   createFrontsElements() {
     this.fFront = this.createElements(this.data.elements['front']);
     this.fFront.setAll('body.immovable', true);
@@ -134,9 +142,9 @@ export class LevelModel extends Phaser.State {
       return provider.name === dataElement.type;
     });
     if (TypeElement) {
-      return new TypeElement(this, dataElement.x, dataElement.y);
+      return new TypeElement(this, dataElement);
     } else {
-      return new ItemDefaultModel(this, dataElement.x, dataElement.y, dataElement.key, dataElement.frame);
+      return new ItemDefaultModel(this, dataElement);
     }
   }
 
@@ -150,7 +158,12 @@ export class LevelModel extends Phaser.State {
       items: true
     };
     touchingState.back = this.physics.arcade.collide(this.fPlayer, this.fBack);
+    this.physics.arcade.collide(this.fEnemies, this.fBack);
     touchingState.items = this.physics.arcade.collide(this.fPlayer, this.fItems, this.playerVsItem, null, this);
+    this.physics.arcade.collide(this.fEnemies, this.fItems, (enemie, item) => {
+      enemie.touchItem(item);
+    });
+    this.physics.arcade.collide(this.fPlayer, this.fEnemies);
     this.physics.arcade.collide(this.fPlayer, this.fEndGame, () => {
       // this.state.start('LevelDefault');
       this.parentGame.nextLevel();
@@ -164,31 +177,33 @@ export class LevelModel extends Phaser.State {
       this.fPlayer.body.velocity.y = -400;
     }
 
+    // console.log('touching',touching);
+
     if (touching) {
       if (this.fPlayer.body.velocity.x === 0) {
         // if it is not moving horizontally play the idle or lower
         if (this.cursors.down.isDown) {
-          this.fPlayer.play('lower');
+          this.fPlayer.play(this.fPlayer.getAnimationName('lower'));
         } else {
-          this.fPlayer.play('idle');
+          this.fPlayer.play(this.fPlayer.getAnimationName('idle'));
         }
       } else {
         // if it is moving play the walk
-        this.fPlayer.play('walk');
+        this.fPlayer.play(this.fPlayer.getAnimationName('walk'));
       }
     } else {
       // it is not touching the platforms so it means it is jumping.
       if (this.cursors.down.isDown) {
-        this.fPlayer.play('lower');
+        this.fPlayer.play(this.fPlayer.getAnimationName('lower'));
       } else {
-        this.fPlayer.play('jump');
+        this.fPlayer.play(this.fPlayer.getAnimationName('jump'));
       }
     }
 
 
     // fruits
     // this.physics.arcade.overlap(this.fPlayer, this.fFruits, this.playerVsFruit, null, this);
-    this.physics.arcade.overlap(this.fPlayer, this.fTiles, this.getCoin, null, this);
+    this.physics.arcade.overlap(this.fPlayer, this.fTiles, this.getItem, null, this);
     // water
     // this.fWater.tilePosition.x -= 1;
     this.fBG.tilePosition.x = -this.camera.x;
@@ -207,8 +222,8 @@ export class LevelModel extends Phaser.State {
     // this.game.debug.spriteBounds(this.fPlayer);
   }
 
-  getCoin(player, coin) {
-    coin.getCoin();
+  getItem(player, coin) {
+    coin.getItem();
   }
 
   playerVsItem(player, item) {
