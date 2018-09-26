@@ -6,21 +6,21 @@ import {element} from 'protractor';
 
 export class InterogationBoxModel extends ItemDefaultModel {
 
-  contents: Array<ItemDefaultModel> = [];
+  contents: Array<any> = [];
 
-  constructor(private level: LevelModel, data: any) {
-    data.key = 'backgrounds-objects';
-    data.frame = 'box-interogation1';
+  constructor(public level: LevelModel, data: any) {
     super(level, data);
+    this.key = 'backgrounds-objects';
+    this.frameName = 'box-interogation1';
     this.anchor.setTo(0.5, 0.0);
     this.animations.add('idle', Phaser.Animation.generateFrameNames('box-interogation', 1, 4), 6, true);
     this.animations.add('empty', ['box-empty'], 6, true);
-    if(Array.isArray(data.content)) {
+    if (Array.isArray(data.content)) {
       data.content.forEach((element) => {
         const dataElement = {
-          x : data.x,
-          y : data.y - 16,
-          type : element
+          x: data.x,
+          y: data.y - 16,
+          type: element
         };
         let newElement = level.createElement(dataElement);
         this.contents.push(newElement);
@@ -28,8 +28,8 @@ export class InterogationBoxModel extends ItemDefaultModel {
 
     } else {
       const dataCoin = {
-        x : data.x,
-        y : data.y - 8
+        x: data.x,
+        y: data.y - 8
       };
       this.contents.push(new CoinModel(level, dataCoin));
       this.contents.push(new CoinModel(level, dataCoin));
@@ -41,6 +41,7 @@ export class InterogationBoxModel extends ItemDefaultModel {
   }
 
   update() {
+    super.update();
     if (this.contents.length > 0) {
       this.play('idle');
     } else {
@@ -49,7 +50,7 @@ export class InterogationBoxModel extends ItemDefaultModel {
   }
 
 
-  collideWithPlayer(player) {
+  getItemBy(player) {
     if (player.body.touching.up && this.body.touching.down) {
       let tween = this.level.add.tween(this).to({
         y: this.y - 10
@@ -59,9 +60,8 @@ export class InterogationBoxModel extends ItemDefaultModel {
         if (this.contents.length > 0) {
           this.level.parentGame.addPoint(100);
           let first = this.contents[0];
-          console.log(first);
           this.game.world.add(first);
-          first.getItem();
+          first.getItemBy(player);
           this.contents.shift();
         }
 

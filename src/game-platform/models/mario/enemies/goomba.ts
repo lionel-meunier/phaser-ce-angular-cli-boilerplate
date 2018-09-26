@@ -6,9 +6,8 @@ export class Goomba extends EnemieModel {
 
 
   constructor(public level: LevelModel, data: any) {
-    data.key = 'enemies';
-    data.frame = 'goomba-walk1';
     super(level, data);
+    this.loadTexture('enemies', 'goomba-walk1');
     level.game.world.add(this);
     this.anchor.setTo(0.5, 1.0);
     level.game.physics.arcade.enable(this);
@@ -17,6 +16,8 @@ export class Goomba extends EnemieModel {
   }
 
   update() {
+    super.update();
+
     if (this.body.touching.down) {
       if (!this.body.touching.up) {
         this.play('walk');
@@ -33,15 +34,5 @@ export class Goomba extends EnemieModel {
         this.scale.x = 1;
       }
     }
-
-    if (this.body.touching.up) {
-      this.play('die', 50, false, true);
-    }
-    // this.x -= 1;
-
-
-  }
-
-  touchItem(item) {
   }
 }

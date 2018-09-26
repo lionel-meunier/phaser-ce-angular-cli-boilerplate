@@ -1,38 +1,70 @@
 import * as Phaser from 'phaser-ce';
-import {GameModel} from './game.model';
+import {LevelModel} from './level.model';
+import {PhaserInteractionHelperService} from '../../services/phaser-interaction-helper.service';
 
 export class PlayerModel extends Phaser.Sprite {
 
   cursors: any;
+  private currentLife: number;
+  invincible: boolean;
 
-  constructor(public parentGame: GameModel, x: number, y: number, key: string, frame?: number) {
-    super(parentGame.phaserGame, x, y, key, frame);
-    parentGame.phaserGame.world.add(this);
+  constructor(public level: LevelModel, x: number, y: number, key: string, frame?: number) {
+    super(level.game, x, y, key, frame);
+    level.game.world.add(this);
     this.anchor.setTo(0.5, 0.0);
-    parentGame.phaserGame.physics.arcade.enable(this);
-    this.cursors = parentGame.phaserGame.input.keyboard.createCursorKeys();
+    level.game.physics.arcade.enable(this);
+    this.cursors = level.game.input.keyboard.createCursorKeys();
+    this.currentLife = 1;
+    this.invincible = false;
   }
 
   update() {
-    if (this.cursors.left.isDown) {
-      // move to the left
-      this.body.velocity.x = -200;
-    } else if (this.cursors.right.isDown) {
-      // move to the right
-      this.body.velocity.x = 200;
-    } else {
-      // dont move in the horizontal
-      this.body.velocity.x = 0;
-    }
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fDecor, (player, element) => {
+      player.touchDecor(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fEnemies, (player, element) => {
+      player.touchEnemie(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fItems, (player, element) => {
+      player.touchItem(element);
+    });
+  }
 
+  touchDecor(element) {
 
-    // update the facing of the player
-    if (this.cursors.left.isDown) {
-      // face left
-      this.scale.x = 1;
-    } else if (this.cursors.right.isDown) {
-      // face right
-      this.scale.x = -1;
+  }
+
+  touchEnemie(enemie) {
+
+  }
+
+  touchItem(item) {
+
+  }
+
+  getCurrentLife() {
+    return this.currentLife;
+  }
+
+  setCurrentLife(value) {
+    if (this.invincible === false) {
+      this.currentLife = value;
+      this.startInvincibility();
+      if (this.currentLife <= 0) {
+        this.kill();
+      }
     }
+  }
+
+  startInvincibility() {
+    this.invincible = true;
+    setTimeout(() => {
+      this.invincible = false;
+    }, 500);
+  }
+
+  kill() {
+    this.level.parentGame.lose();
+    return super.kill();
   }
 }

@@ -1,6 +1,7 @@
 import * as Phaser from 'phaser-ce';
 import {LevelModel} from './level.model';
 import {ItemDefaultModel} from './item-default.model';
+import {PhaserInteractionHelperService} from '../../services/phaser-interaction-helper.service';
 
 export class EnemieModel extends ItemDefaultModel {
 
@@ -15,6 +16,34 @@ export class EnemieModel extends ItemDefaultModel {
   }
 
   update() {
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fPlayer, (enemie, element) => {
+      enemie.touchPlayer(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fDecor, (enemie, element) => {
+      enemie.touchDecor(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fEnemies, (enemie, element) => {
+      enemie.touchEnemie(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fItems, (enemie, element) => {
+      enemie.touchItem(element);
+    });
+  }
+
+  touchPlayer(player) {
+    if (player.body.touching.down && this.body.touching.up) {
+    } else {
+      player.setCurrentLife(player.getCurrentLife() - 1);
+    }
+
+  }
+
+  touchDecor(element) {
+
+  }
+
+  touchEnemie(enemie) {
+
   }
 
   touchItem(item) {

@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser-ce';
 import {LevelModel} from './level.model';
+import {PhaserInteractionHelperService} from '../../services/phaser-interaction-helper.service';
 
 export class ItemDefaultModel extends Phaser.Sprite {
 
@@ -9,13 +10,37 @@ export class ItemDefaultModel extends Phaser.Sprite {
   }
 
   update() {
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fPlayer, (enemie, element) => {
+      enemie.touchPlayer(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fDecor, (enemie, element) => {
+      enemie.touchDecor(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fEnemies, (enemie, element) => {
+      enemie.touchEnemie(element);
+    });
+    PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fItems, (enemie, element) => {
+      enemie.touchItem(element);
+    });
   }
 
-  collideWithPlayer() {
+  touchPlayer(player) {
 
   }
 
-  getItem() {
+  touchDecor(element) {
+
+  }
+
+  touchEnemie(enemie) {
+
+  }
+
+  touchItem(item) {
+
+  }
+
+  getItemBy(player: any) {
 
   }
 }

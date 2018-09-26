@@ -7,24 +7,15 @@ export class MushroomModel extends ItemDefaultModel {
   getted: boolean = false;
   point: number = 100;
 
-  constructor(private level: LevelModel, data: any) {
-    data.key = 'backgrounds-objects';
-    data.frame = 'mushroom';
+  constructor(public level: LevelModel, data: any) {
     super(level, data);
+    this.loadTexture('backgrounds-objects', 'mushroom');
     this.anchor.setTo(0.5, 0.0);
     level.game.physics.arcade.enable(this);
-
-
   }
 
   update() {
-    // this.level.physics.arcade.collide(this.level.fPlayer, this, () => {
-    //   this.level.fPlayer.setState('standard');
-    // });
-    // this.level.physics.arcade.collide(this.level.fItems, this, () => {
-    // });
-    // this.level.physics.arcade.collide(this.level.fBack, this, () => {
-    // });
+    super.update();
 
     if(this.body) {
       if (this.body.touching.down) {
@@ -42,11 +33,12 @@ export class MushroomModel extends ItemDefaultModel {
     console.log('collide with player');
   }
 
-  getItem() {
-    console.log('getItem ');
+  getItemBy(player) {
     if (this.getted === false) {
       this.level.parentGame.addPoint(this.point);
+      player.setState('standard');
       this.getted = true;
+      this.kill();
     }
   }
 

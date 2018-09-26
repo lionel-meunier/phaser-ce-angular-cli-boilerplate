@@ -45,4 +45,10 @@ export class GameModel {
     this.currentPoint += point;
     console.log('currentPoint', this.currentPoint);
   }
+
+  lose() {
+    console.log('YOUR LOSER');
+    this.currentPoint = 0;
+    this.phaserGame.state.start(this.levels[0].name);
+  }
 }

@@ -1,5 +1,15 @@
 {
   "frames": {
+    "small-empty": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 59,
+        "y": 0,
+        "w": 12,
+        "h": 15
+      }
+    },
     "small-idle": {
       "trimmed": false,
       "rotated": false,
@@ -50,6 +60,16 @@
         "h": 15
       }
     },
+    "empty": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 59,
+        "y": 0,
+        "w": 24,
+        "h": 27
+      }
+    },
     "idle": {
       "trimmed": false,
       "rotated": false,
@@ -67,7 +87,7 @@
         "x": 94,
         "y": 83,
         "w": 16,
-        "h": 26
+        "h": 27
       }
     },
     "walk1": {

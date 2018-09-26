@@ -6,21 +6,26 @@ export class CoinModel extends ItemDefaultModel {
 
   getted: boolean = false;
   point: number = 100;
+  overlapOnly: boolean = true;
 
-  constructor(private level: LevelModel, data: any) {
-    data.key = 'backgrounds-objects';
-    data.frame = 'coin3';
+  constructor(public level: LevelModel, data: any) {
     super(level, data);
+    this.loadTexture('backgrounds-objects', 'coin3');
     this.anchor.setTo(0.5, 0.0);
-    this.animations.add('flip', Phaser.Animation.generateFrameNames('coin', 1, 4), 12, true);
-    // this.animations.add('flip', ['coin1'], 6, true);
+    this.animations.add('flip', Phaser.Animation.generateFrameNames('coin', 1, 4), 6, true);
+    this.play('flip');
   }
 
   update() {
+    super.update();
   }
 
-  getItem() {
+  getItemBy(player) {
     if (this.getted === false) {
+      if (this.body) {
+        this.body.enable = false;
+      }
+
       this.play('flip');
       this.level.add.tween(this).to({
         y: this.y - 20
