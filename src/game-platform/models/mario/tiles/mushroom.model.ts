@@ -10,14 +10,13 @@ export class MushroomModel extends ItemDefaultModel {
   constructor(public level: LevelModel, data: any) {
     super(level, data);
     this.loadTexture('backgrounds-objects', 'mushroom');
-    this.anchor.setTo(0.5, 0.0);
+    this.anchor.setTo(0.5, 1.0);
     level.game.physics.arcade.enable(this);
   }
 
   update() {
     super.update();
-
-    if(this.body) {
+    if (this.touchingBy.decor || this.touchingBy.enemie || this.touchingBy.item) {
       if (this.body.touching.down) {
         if (this.scale.x > 0) { // to left
           this.body.velocity.x = -50;
@@ -25,12 +24,13 @@ export class MushroomModel extends ItemDefaultModel {
           this.body.velocity.x = 50;
         }
       }
+      if (this.body.touching.left) {
+        this.scale.x = -1;
+      } else if (this.body.touching.right) {
+        this.scale.x = 1;
+      }
     }
 
-  }
-
-  collideWithPlayer() {
-    console.log('collide with player');
   }
 
   getItemBy(player) {
@@ -40,9 +40,5 @@ export class MushroomModel extends ItemDefaultModel {
       this.getted = true;
       this.kill();
     }
-  }
-
-  touchItem() {
-    console.log('touchItem');
   }
 }

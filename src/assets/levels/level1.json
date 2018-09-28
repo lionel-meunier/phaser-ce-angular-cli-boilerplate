@@ -39,7 +39,7 @@
           "config": {
             "body.immovable" : true,
             "body.allowGravity" : false,
-            "body.checkCollision.down" : true
+            "body.checkCollision.down" : false
           }
         },
         {
@@ -118,7 +118,7 @@
       "config": {
         "body.immovable" : true,
         "body.allowGravity" : false,
-        "body.checkCollision.down" : true
+        "body.checkCollision.down" : false
       }
     },
     "enemies": {
@@ -144,59 +144,16 @@
           "type" : "GroupModel",
           "data" : [
             {
-              "type" : "GroupModel",
-              "data" : [
-                {
-                  "type": "CoinModel",
-                  "x": 35,
-                  "y": 500
-                },
-                {
-                  "type": "CoinModel",
-                  "x": 55,
-                  "y": 500
-                },
-                {
-                  "type": "CoinModel",
-                  "x": 75,
-                  "y": 500
-                }
-              ],
-              "config" : {
-                "body.allowGravity" : false
-              }
-            },
-            {
-              "type": "CoinModel",
-              "x": 105,
-              "y": 430
-            }
-          ],
-          "config" : {
-            "body.allowGravity" : false
-          },
-          "name" : "coins"
-        },
-        {
-          "type" : "GroupModel",
-          "data" : [
-            {
-              "type": "MushroomModel",
-              "x": 100,
-              "y": 300
-            }
-          ],
-          "config" : {
-            "body.checkCollision" : true
-          }
-        },
-        {
-          "type" : "GroupModel",
-          "data" : [
-            {
               "type": "InterogationBoxModel",
               "x": 10,
-              "y": 500
+              "y": 555,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
             },
             {
               "type": "emptyBox",
@@ -205,12 +162,19 @@
             },
             {
               "type": "InterogationBoxModel",
-              "x": 150,
-              "y": 500
+              "x": 120,
+              "y": 500,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
             },
             {
               "type": "InterogationBoxModel",
-              "x": 170,
+              "x": 140,
               "y": 500,
               "content": [
                 "MushroomModel"
@@ -218,8 +182,15 @@
             },
             {
               "type": "InterogationBoxModel",
-              "x": 190,
-              "y": 500
+              "x": 160,
+              "y": 500,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
             },
             {
               "type": "emptyBox",
@@ -273,6 +244,57 @@
             "body.checkCollision" : true
           },
           "name" : "boxs"
+        },
+        {
+          "name" : "mushroom",
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "type": "MushroomModel",
+              "x": 75,
+              "y": 300
+            }
+          ],
+          "config" : {
+            "body.checkCollision" : true
+          }
+        },
+        {
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "type" : "GroupModel",
+              "data" : [
+                {
+                  "type": "CoinModel",
+                  "x": 35,
+                  "y": 500
+                },
+                {
+                  "type": "CoinModel",
+                  "x": 55,
+                  "y": 500
+                },
+                {
+                  "type": "CoinModel",
+                  "x": 75,
+                  "y": 500
+                }
+              ],
+              "config" : {
+                "body.allowGravity" : false
+              }
+            },
+            {
+              "type": "CoinModel",
+              "x": 105,
+              "y": 430
+            }
+          ],
+          "config" : {
+            "body.allowGravity" : false
+          },
+          "name" : "coins"
         }
       ],
       "config": {

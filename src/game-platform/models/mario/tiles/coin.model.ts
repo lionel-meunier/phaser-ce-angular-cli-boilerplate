@@ -1,6 +1,7 @@
 import * as Phaser from 'phaser-ce';
 import {LevelModel} from '../../core/level.model';
 import {ItemDefaultModel} from '../../core/item-default.model';
+import {PlayerModel} from '../../core/player.model';
 
 export class CoinModel extends ItemDefaultModel {
 
@@ -37,6 +38,21 @@ export class CoinModel extends ItemDefaultModel {
 
       this.level.parentGame.addPoint(this.point);
       this.getted = true;
+    }
+  }
+
+  touchPlayer(player) {
+    // console.log('player touched', player);
+  }
+
+  touchItem(item) {
+    // console.log('item touched', item);
+    // this.body.stop();
+  }
+
+  addInWorldBy(element: any, elementInteraction: any) {
+    if (elementInteraction instanceof PlayerModel) {
+      this.getItemBy(elementInteraction);
     }
   }
 }

@@ -35,7 +35,6 @@ export class EnemieModel extends ItemDefaultModel {
     } else {
       player.setCurrentLife(player.getCurrentLife() - 1);
     }
-
   }
 
   touchDecor(element) {

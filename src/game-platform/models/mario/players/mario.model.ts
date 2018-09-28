@@ -10,7 +10,6 @@ export class Mario extends PlayerModel {
 
   constructor(public level: LevelModel, x: number, y: number) {
     super(level, x, y, 'mario', null);
-    this.anchor.setTo(0.5, 1.0);
     // small
     this.animations.add('small-walk', Phaser.Animation.generateFrameNames('small-walk', 1, 2), 6, true);
     this.animations.add('small-jump', ['small-jump'], 6, true);
@@ -27,21 +26,6 @@ export class Mario extends PlayerModel {
 
     this.state = 'small';
     this.setSize();
-  }
-
-  collideWith(elements: any, callback: any) {
-    if (elements instanceof Phaser.Group) {
-      elements.children.forEach((element) => {
-        this.collideWith(element, callback);
-      });
-    } else {
-      if (this.level.physics.arcade) {
-        if (typeof this.level.physics.arcade['collideHandler'] === 'function') {
-          this.level.physics.arcade['collideHandler']
-          (this, elements, callback, null, null, elements.overlapOnly ? elements.overlapOnly : false);
-        }
-      }
-    }
   }
 
   update() {
@@ -72,10 +56,10 @@ export class Mario extends PlayerModel {
       this.body.velocity.y = -400;
     }
 
-    let touching = this.body.touching.down;
+    const touchingDown = this.body.touching.down;
     if (this.invincible) {
       this.play(this.getAnimationName('blink'));
-    } else if (touching) {
+    } else if (touchingDown) {
       if (this.body.velocity.x === 0) {
         // if it is not moving horizontally play the idle or lower
         if (this.cursors.down.isDown) {
@@ -109,12 +93,7 @@ export class Mario extends PlayerModel {
   }
 
   play(name: string, frameRate?: number, loop?: boolean, killOnComplete?: boolean): Phaser.Animation {
-    if (name === 'lower' && this.body.height > 20) {
-      this.body.height = 20;
-    } else if (name !== 'lower' && this.body.height === 20) {
-      this.y -= 8;
-      this.body.height = 28;
-    }
+    this.setSize();
     return super.play(name, frameRate, loop, killOnComplete);
   }
 
@@ -129,7 +108,11 @@ export class Mario extends PlayerModel {
     if (this.state === 'small') {
       this.body.setSize(14, 16, 0, 0);
     } else {
-      this.body.setSize(14, 28, 0, 0);
+      if (this.animations.currentAnim.name === 'lower') {
+        this.body.setSize(14, 16, 0, 0);
+      } else {
+        this.body.setSize(14, 27, 0, 0);
+      }
     }
   }
 
@@ -156,7 +139,6 @@ export class Mario extends PlayerModel {
 
   setCurrentLife(value) {
     super.setCurrentLife(value);
-    console.log(this.getCurrentLife(), 'setcurrent life mario');
     if (this.getCurrentLife() === 1) {
       this.setState('small', false);
     } else if (this.getCurrentLife() === 2) {

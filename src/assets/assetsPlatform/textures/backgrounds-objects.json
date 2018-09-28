@@ -120,6 +120,16 @@
         "h": 16
       }
     },
+    "star" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 141,
+        "y": 68,
+        "w": 16,
+        "h": 16
+      }
+    },
     "mushroom" : {
       "trimmed": false,
       "rotated": false,
@@ -128,6 +138,26 @@
         "y": 69,
         "w": 16,
         "h": 16
+      }
+    },
+    "flower" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 182,
+        "y": 69,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "wing" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 202,
+        "y": 68,
+        "w": 16,
+        "h": 17
       }
     }
   }

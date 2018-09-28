@@ -19,7 +19,7 @@ export class InterogationBoxModel extends ItemDefaultModel {
       data.content.forEach((element) => {
         const dataElement = {
           x: data.x,
-          y: data.y - 16,
+          y: data.y - this.body.height,
           type: element
         };
         let newElement = level.createElement(dataElement);
@@ -27,17 +27,8 @@ export class InterogationBoxModel extends ItemDefaultModel {
       });
 
     } else {
-      const dataCoin = {
-        x: data.x,
-        y: data.y - 8
-      };
-      this.contents.push(new CoinModel(level, dataCoin));
-      this.contents.push(new CoinModel(level, dataCoin));
-      this.contents.push(new CoinModel(level, dataCoin));
-      this.contents.push(new CoinModel(level, dataCoin));
-      this.contents.push(new CoinModel(level, dataCoin));
+      console.error('intergation bow not have content');
     }
-
   }
 
   update() {
@@ -48,7 +39,6 @@ export class InterogationBoxModel extends ItemDefaultModel {
       this.play('empty');
     }
   }
-
 
   getItemBy(player) {
     if (player.body.touching.up && this.body.touching.down) {
@@ -61,10 +51,10 @@ export class InterogationBoxModel extends ItemDefaultModel {
           this.level.parentGame.addPoint(100);
           let first = this.contents[0];
           this.game.world.add(first);
-          first.getItemBy(player);
+          first.addInWorldBy(this, player);
+          // first.getItemBy(player);
           this.contents.shift();
         }
-
 
         this.level.add.tween(this).to({
           y: this.y + 10

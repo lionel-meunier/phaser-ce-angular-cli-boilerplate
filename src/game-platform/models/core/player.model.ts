@@ -10,9 +10,9 @@ export class PlayerModel extends Phaser.Sprite {
 
   constructor(public level: LevelModel, x: number, y: number, key: string, frame?: number) {
     super(level.game, x, y, key, frame);
-    level.game.world.add(this);
-    this.anchor.setTo(0.5, 0.0);
-    level.game.physics.arcade.enable(this);
+    this.level.game.world.add(this);
+    this.anchor.setTo(0.5, 1.0);
+    this.level.game.physics.arcade.enable(this);
     this.cursors = level.game.input.keyboard.createCursorKeys();
     this.currentLife = 1;
     this.invincible = false;
@@ -31,7 +31,6 @@ export class PlayerModel extends Phaser.Sprite {
   }
 
   touchDecor(element) {
-
   }
 
   touchEnemie(enemie) {
