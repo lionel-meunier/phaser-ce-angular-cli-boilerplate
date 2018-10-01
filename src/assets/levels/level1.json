@@ -8,7 +8,7 @@
     }
   ],
   "size": {
-    "width": 1000,
+    "width": 2000,
     "height": 600
   },
   "background": {
@@ -27,11 +27,78 @@
     "decor": {
       "data": [
         {
+          "name" : "sol",
           "type" : "GroupModel",
           "data" : [
             {
-              "x": 10,
-              "y": 470,
+              "x": -100,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 0,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 100,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 200,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 300,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 400,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 500,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 600,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 700,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 800,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 900,
+              "y": 570,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            },
+            {
+              "x": 1000,
+              "y": 570,
               "key": "backgrounds-objects",
               "frame": "sol-big"
             }
@@ -43,82 +110,71 @@
           }
         },
         {
-          "x": -100,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 0,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 100,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 200,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 300,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 400,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 500,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 600,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 700,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 800,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 900,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
-        },
-        {
-          "x": 1000,
-          "y": 570,
-          "key": "backgrounds-objects",
-          "frame": "sol-big"
+          "name" : "back",
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "x": 100,
+              "y": 507,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation1"
+            },
+            {
+              "x": 200,
+              "y": 554,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation2"
+            },
+            {
+              "x": 300,
+              "y": 507,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation3"
+            },
+            {
+              "x": 380,
+              "y": 554,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation4"
+            },
+            {
+              "x": 500,
+              "y": 507,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation5"
+            },
+            {
+              "x": 600,
+              "y": 522,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation6"
+            },
+            {
+              "x": 700,
+              "y": 507,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation7"
+            },
+            {
+              "x": 900,
+              "y": 442,
+              "key": "backgrounds-objects",
+              "frame": "back-vegetation8"
+            }
+          ],
+          "config": {
+            "body.immovable" : true,
+            "body.allowGravity" : false,
+            "body.checkCollision.up" : false,
+            "body.checkCollision.down" : false,
+            "body.checkCollision.left" : false,
+            "body.checkCollision.right" : false
+          }
         }
       ],
       "config": {
         "body.immovable" : true,
-        "body.allowGravity" : false,
-        "body.checkCollision.down" : false
+        "body.allowGravity" : false
       }
     },
     "enemies": {
@@ -156,6 +212,11 @@
               ]
             },
             {
+              "type": "BlockModel",
+              "x": 50,
+              "y": 500
+            },
+            {
               "type": "emptyBox",
               "x": 100,
               "y": 500
@@ -191,6 +252,23 @@
                 "CoinModel",
                 "CoinModel"
               ]
+            },
+            {
+              "x": 200,
+              "y": 450,
+              "key": "backgrounds-objects",
+              "frame": "metal-block"
+            },
+            {
+              "x": 200,
+              "y": 400,
+              "key": "backgrounds-objects",
+              "frame": "wood-block"
+            },
+            {
+              "type": "emptyBox",
+              "x": 200,
+              "y": 555
             },
             {
               "type": "emptyBox",
@@ -236,6 +314,19 @@
               "type": "emptyBox",
               "x": 500,
               "y": 555
+            },
+
+            {
+              "x": 525,
+              "y": 543,
+              "key": "backgrounds-objects",
+              "frame": "pipe"
+            },
+            {
+              "x": 525,
+              "y": 522,
+              "key": "backgrounds-objects",
+              "frame": "pipe-up"
             }
           ],
           "config" : {

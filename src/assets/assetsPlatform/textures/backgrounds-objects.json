@@ -159,6 +159,166 @@
         "w": 16,
         "h": 17
       }
+    },
+    "back-vegetation1" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 239,
+        "y": 12,
+        "w": 128,
+        "h": 64
+      }
+    },
+    "back-vegetation2" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 374,
+        "y": 60,
+        "w": 64,
+        "h": 16
+      }
+    },
+    "back-vegetation3" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 466,
+        "y": 11,
+        "w": 80,
+        "h": 64
+      }
+    },
+    "back-vegetation4" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 204,
+        "y": 13,
+        "w": 16,
+        "h": 17
+      }
+    },
+    "back-vegetation5" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 248,
+        "y": 82,
+        "w": 127,
+        "h": 64
+      }
+    },
+    "back-vegetation6" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 376,
+        "y": 98,
+        "w": 63,
+        "h": 48
+      }
+    },
+    "back-vegetation7" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 443,
+        "y": 82,
+        "w": 96,
+        "h": 64
+      }
+    },
+    "back-vegetation8" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 548,
+        "y": 0,
+        "w": 142,
+        "h": 128
+      }
+    },
+    "pipe" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 103,
+        "y": 132,
+        "w": 30,
+        "h": 27
+      }
+    },
+    "pipe-up" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 102,
+        "y": 108,
+        "w": 32,
+        "h": 21
+      }
+    },
+    "block1" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 13,
+        "y": 129,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "block2" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 30,
+        "y": 129,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "block3" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 47,
+        "y": 129,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "block4" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 64,
+        "y": 129,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "metal-block" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 13,
+        "y": 92,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "wood-block" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 13,
+        "y": 109,
+        "w": 16,
+        "h": 16
+      }
     }
   }
 }

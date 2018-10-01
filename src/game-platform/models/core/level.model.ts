@@ -76,6 +76,7 @@ export class LevelModel extends Phaser.State {
 
   createDecorsElements() {
     this.fDecor = this.createGroup(this.data.elements['decor']);
+    console.log(this.data.elements['decor']);
   }
 
   createEnemiesElements() {
@@ -154,6 +155,8 @@ export class LevelModel extends Phaser.State {
 
   afterCreate() {
     this.camera.follow(this.fPlayer);
+    console.log(this.fDecor);
+    this.game.debug.spriteBounds(this.fDecor);
   }
 
 }

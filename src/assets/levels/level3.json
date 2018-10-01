@@ -24,125 +24,285 @@
     "y": 500
   },
   "elements": {
-    "back": [
-      {
-        "x": -100,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 0,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 100,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 200,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 300,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 400,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 500,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 600,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 700,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 800,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 900,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      },
-      {
-        "x": 1000,
-        "y": 570,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
+    "decor": {
+      "data": [
+        {
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "x": 10,
+              "y": 470,
+              "key": "backgrounds-objects",
+              "frame": "sol-big"
+            }
+          ],
+          "config": {
+            "body.immovable" : true,
+            "body.allowGravity" : false,
+            "body.checkCollision.down" : false
+          }
+        },
+        {
+          "x": -100,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 0,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 100,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 200,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 300,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 400,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 500,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 600,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 700,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 800,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 900,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        },
+        {
+          "x": 1000,
+          "y": 570,
+          "key": "backgrounds-objects",
+          "frame": "sol-big"
+        }
+      ],
+      "config": {
+        "body.immovable" : true,
+        "body.allowGravity" : false,
+        "body.checkCollision.down" : false
       }
-    ],
-    "items": [
-      {
-        "type": "interogationBox",
-        "x": 10,
-        "y": 500
-      },
-      {
-        "type": "emptyBox",
-        "x": 100,
-        "y": 500
+    },
+    "enemies": {
+      "data": [
+        {
+          "type": "Goomba",
+          "x": 380,
+          "y": 550
+        },
+        {
+          "type": "Goomba",
+          "x": 480,
+          "y": 550
+        }
+      ],
+      "config": {
+        "body.checkCollision" : true
       }
-    ],
-    "tiles": [
-      {
-        "type": "coin",
-        "x": 30,
-        "y": 500
-      },
-      {
-        "type": "coin",
-        "x": 50,
-        "y": 500
-      },
-      {
-        "type": "coin",
-        "x": 70,
-        "y": 500
-      },
-      {
-        "type": "coin",
-        "x": 100,
-        "y": 430
+    },
+    "items": {
+      "data": [
+        {
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "type": "InterogationBoxModel",
+              "x": 10,
+              "y": 555,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
+            },
+            {
+              "type": "emptyBox",
+              "x": 100,
+              "y": 500
+            },
+            {
+              "type": "InterogationBoxModel",
+              "x": 120,
+              "y": 500,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
+            },
+            {
+              "type": "InterogationBoxModel",
+              "x": 140,
+              "y": 500,
+              "content": [
+                "MushroomModel"
+              ]
+            },
+            {
+              "type": "InterogationBoxModel",
+              "x": 160,
+              "y": 500,
+              "content": [
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel",
+                "CoinModel"
+              ]
+            },
+            {
+              "type": "emptyBox",
+              "x": 200,
+              "y": 555
+            },
+            {
+              "type": "emptyBox",
+              "x": 216,
+              "y": 555
+            },
+            {
+              "type": "emptyBox",
+              "x": 216,
+              "y": 539
+            },
+            {
+              "type": "emptyBox",
+              "x": 232,
+              "y": 555
+            },
+            {
+              "type": "emptyBox",
+              "x": 232,
+              "y": 539
+            },
+            {
+              "type": "emptyBox",
+              "x": 232,
+              "y": 523
+            },
+            {
+              "type": "emptyBox",
+              "x": 400,
+              "y": 555
+            },
+            {
+              "type": "emptyBox",
+              "x": 400,
+              "y": 539
+            },
+            {
+              "type": "emptyBox",
+              "x": 500,
+              "y": 555
+            }
+          ],
+          "config" : {
+            "body.immovable" : true,
+            "body.allowGravity" : false,
+            "body.checkCollision" : true
+          },
+          "name" : "boxs"
+        },
+        {
+          "name" : "mushroom",
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "type": "MushroomModel",
+              "x": 75,
+              "y": 300
+            }
+          ],
+          "config" : {
+            "body.checkCollision" : true
+          }
+        },
+        {
+          "type" : "GroupModel",
+          "data" : [
+            {
+              "type" : "GroupModel",
+              "data" : [
+                {
+                  "type": "CoinModel",
+                  "x": 35,
+                  "y": 500
+                },
+                {
+                  "type": "CoinModel",
+                  "x": 55,
+                  "y": 500
+                },
+                {
+                  "type": "CoinModel",
+                  "x": 75,
+                  "y": 500
+                }
+              ],
+              "config" : {
+                "body.allowGravity" : false
+              }
+            },
+            {
+              "type": "CoinModel",
+              "x": 105,
+              "y": 430
+            }
+          ],
+          "config" : {
+            "body.allowGravity" : false
+          },
+          "name" : "coins"
+        }
+      ],
+      "config": {
       }
-    ],
-    "front": [
-      {
-        "x": 10,
-        "y": 150,
-        "key": "backgrounds-objects",
-        "frame": "sol-big"
-      }
-    ],
+    },
     "endGame": [
       {
-        "x": 400,
+        "x": 800,
         "y": 500,
         "key": "backgrounds-objects",
         "frame": "box-empty"

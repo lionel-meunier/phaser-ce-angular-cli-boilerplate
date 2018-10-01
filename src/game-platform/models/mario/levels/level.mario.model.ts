@@ -7,6 +7,7 @@ import {Goomba} from '../enemies/goomba';
 import {MushroomModel} from '../tiles/mushroom.model';
 import {StarModel} from '../tiles/star.model';
 import {FlowerModel} from '../tiles/flower.model';
+import {BlockModel} from '../items/block.model';
 
 export class LevelMarioModel extends LevelModel {
 
@@ -19,11 +20,19 @@ export class LevelMarioModel extends LevelModel {
   init() {
     super.init();
     this.typePlayers.push(Mario);
+    //decor interaction
     this.typeElements.push(InterogationBoxModel);
-    this.typeElements.push(CoinModel);
+    this.typeElements.push(BlockModel);
+
+    //enemies
     this.typeElements.push(Goomba);
+
+    //items getted by player
+    this.typeElements.push(CoinModel);
     this.typeElements.push(MushroomModel);
     this.typeElements.push(StarModel);
     this.typeElements.push(FlowerModel);
+
+
   }
 }

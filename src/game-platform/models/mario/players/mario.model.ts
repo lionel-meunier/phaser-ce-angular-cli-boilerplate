@@ -79,11 +79,17 @@ export class Mario extends PlayerModel {
         this.play(this.getAnimationName('jump'));
       }
     }
+
+    if (this.inWorld === false) {
+      console.log('LOOSER');
+      this.setCurrentLife(0);
+    }
   }
 
   touchEnemie(enemie) {
     if (this.body.touching.down && enemie.body.touching.up) {
       enemie.play('die', 50, false, true);
+      this.body.velocity.y = -200;
     }
     enemie.touchPlayer(this);
   }
