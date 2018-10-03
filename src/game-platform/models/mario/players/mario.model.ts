@@ -88,7 +88,7 @@ export class Mario extends PlayerModel {
 
   touchEnemie(enemie) {
     if (this.body.touching.down && enemie.body.touching.up) {
-      enemie.play('die', 50, false, true);
+      enemie.setCurrentLife(enemie.getCurrentLife() - 1);
       this.body.velocity.y = -200;
     }
     enemie.touchPlayer(this);
@@ -150,6 +150,5 @@ export class Mario extends PlayerModel {
     } else if (this.getCurrentLife() === 2) {
       this.setState('standard', false);
     }
-
   }
 }

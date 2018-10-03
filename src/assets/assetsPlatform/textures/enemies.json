@@ -20,6 +20,46 @@
         "h": 16
       }
     },
+    "goomba-fly1" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 113,
+        "y": 0,
+        "w": 20,
+        "h": 24
+      }
+    },
+    "goomba-fly2" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 163,
+        "y": 0,
+        "w": 20,
+        "h": 24
+      }
+    },
+    "goomba-fly3" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 213,
+        "y": 0,
+        "w": 20,
+        "h": 24
+      }
+    },
+    "goomba-fly4" : {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 263,
+        "y": 0,
+        "w": 20,
+        "h": 24
+      }
+    },
     "goomba-die" : {
       "trimmed": false,
       "rotated": false,
@@ -28,6 +68,56 @@
         "y": 7,
         "w": 16,
         "h": 9
+      }
+    },
+    "turtle-walk1": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 125,
+        "y": 98,
+        "w": 16,
+        "h": 27
+      }
+    },
+    "turtle-walk2": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 165,
+        "y": 98,
+        "w": 16,
+        "h": 27
+      }
+    },
+    "turtle-shell1": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 15,
+        "y": 104,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "turtle-shell2": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 15,
+        "y": 129,
+        "w": 16,
+        "h": 16
+      }
+    },
+    "turtle-shell3": {
+      "trimmed": false,
+      "rotated": false,
+      "frame": {
+        "x": 15,
+        "y": 154,
+        "w": 16,
+        "h": 16
       }
     }
   }

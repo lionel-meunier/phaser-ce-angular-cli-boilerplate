@@ -6,11 +6,13 @@ export class ItemDefaultModel extends Phaser.Sprite {
 
   overlapOnly: boolean = false;
   touchingBy: any;
+  data: any;
 
   constructor(public level: LevelModel, data: any) {
     super(level.game, data.x, data.y, data.key ? data.key : 'backgrounds-objects', data.frame ? data.frame : 'box-empty');
     this.anchor.setTo(0.5, 0.0);
     this.level.game.physics.arcade.enable(this);
+    this.data = data;
   }
 
   update() {

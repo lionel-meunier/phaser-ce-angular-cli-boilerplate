@@ -5,14 +5,13 @@ import {PhaserInteractionHelperService} from '../../services/phaser-interaction-
 
 export class EnemieModel extends ItemDefaultModel {
 
-  cursors: any;
+  private currentLife: number;
 
   constructor(public level: LevelModel, data: any) {
     super(level, data);
     level.game.world.add(this);
-    this.anchor.setTo(0.5, 0.0);
+    this.anchor.setTo(0.5, 0.5);
     level.game.physics.arcade.enable(this);
-    this.cursors = level.game.input.keyboard.createCursorKeys();
   }
 
   update() {
@@ -23,11 +22,14 @@ export class EnemieModel extends ItemDefaultModel {
       enemie.touchDecor(element);
     });
     PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fEnemies, (enemie, element) => {
-      enemie.touchEnemie(element);
+      enemie.touchEnemie(element, true);
     });
     PhaserInteractionHelperService.collideOneTorecursiveGroup(this, this.level.fItems, (enemie, element) => {
       enemie.touchItem(element);
     });
+    if (this.inWorld === false) {
+      this.kill();
+    }
   }
 
   touchPlayer(player) {
@@ -41,18 +43,35 @@ export class EnemieModel extends ItemDefaultModel {
 
   }
 
-  touchEnemie(enemie) {
-
+  touchEnemie(enemie, dispatch?) {
+    if (dispatch === true) {
+      enemie.touchEnemie(this, false);
+    }
   }
 
   touchItem(item) {
 
   }
 
+  getCurrentLife() {
+    return this.currentLife;
+  }
+
+  setCurrentLife(value) {
+    this.currentLife = value;
+    if (this.currentLife <= 0) {
+      this.kill();
+    }
+  }
+
   kill() {
-    if (this.alive === true) {
+    if (this.alive === true && this.inWorld === true) {
       this.level.parentGame.addPoint(100);
     }
     return super.kill();
+  }
+
+  killedBy(enemie) {
+
   }
 }

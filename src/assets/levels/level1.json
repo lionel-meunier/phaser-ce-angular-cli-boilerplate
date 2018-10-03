@@ -73,12 +73,6 @@
               "frame": "sol-big"
             },
             {
-              "x": 600,
-              "y": 570,
-              "key": "backgrounds-objects",
-              "frame": "sol-big"
-            },
-            {
               "x": 700,
               "y": 570,
               "key": "backgrounds-objects",
@@ -181,12 +175,33 @@
       "data": [
         {
           "type": "Goomba",
-          "x": 380,
-          "y": 550
+          "x": 300,
+          "y": 400
         },
         {
           "type": "Goomba",
-          "x": 480,
+          "x": 325,
+          "y": 400
+        },
+        {
+          "type": "Goomba",
+          "x": 350,
+          "y": 400
+        },
+        {
+          "type": "Turtle",
+          "x": 380,
+          "y": 400
+        },
+        {
+          "type": "Turtle",
+          "x": 420,
+          "y": 550,
+          "defaultState" : "shell"
+        },
+        {
+          "type": "Goomba",
+          "x": 500,
           "y": 550
         }
       ],
@@ -213,7 +228,7 @@
             },
             {
               "type": "BlockModel",
-              "x": 50,
+              "x": 55,
               "y": 500
             },
             {
@@ -312,18 +327,18 @@
             },
             {
               "type": "emptyBox",
-              "x": 500,
+              "x": 800,
               "y": 555
             },
 
             {
-              "x": 525,
+              "x": 825,
               "y": 543,
               "key": "backgrounds-objects",
               "frame": "pipe"
             },
             {
-              "x": 525,
+              "x": 825,
               "y": 522,
               "key": "backgrounds-objects",
               "frame": "pipe-up"
@@ -364,7 +379,7 @@
                 {
                   "type": "CoinModel",
                   "x": 55,
-                  "y": 500
+                  "y": 450
                 },
                 {
                   "type": "CoinModel",
